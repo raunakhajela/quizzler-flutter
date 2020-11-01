@@ -8,10 +8,10 @@ class QuizBrain {
   not change the value. To access the value we will require a getter method*/
 
   List<Question> _questionBank = [
-    Question(q: 'Sasuke is powerful than Naruto', a: false),
-    Question(q: 'Saukra is weak', a: false),
-    Question(q: 'A slug\'s blood is green.', a: true),
-    Question(q: 'Naruto is from Uchiha clan.', a: false)
+    Question(questionText: 'Sasuke is powerful than Naruto', questionAnswer: false),
+    Question(questionText: 'Saukra is weak', questionAnswer: false),
+    Question(questionText: 'A slug\'s blood is green.', questionAnswer: true),
+    Question(questionText: 'Naruto is from Uchiha clan.', questionAnswer: false)
   ];
 
   void nextQuestion(){
@@ -20,6 +20,19 @@ class QuizBrain {
     }
     print(_questionNumber);
     print(_questionBank.length);
+  }
+
+  bool isFinished(){
+    if(_questionNumber >= _questionBank.length -1){
+      print('Now returning true');
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void resetQuiz() {
+    _questionNumber = 0;
   }
 
   String getQuestionText(){
